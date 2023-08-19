@@ -25,8 +25,7 @@ env.read_env()
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.str('SECRET_KEY')
-# "django-insecure-hs(pnmunk!k-bt(apw$=t$p4j5qy@!%r)1yha$q6)tb84kfxdh"
+SECRET_KEY = "django-insecure-hs(pnmunk!k-bt(apw$=t$p4j5qy@!%r)1yha$q6)tb84kfxdh"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
@@ -89,18 +88,15 @@ WSGI_APPLICATION = "django_project.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": env.dj_db_url(
-        "DATABASE_URL"
-    )
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "real_estate",
+        "USER": "postgres",
+        "PASSWORD": "Individualism777",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
+    }
 }
-# {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "real_estate",
-#         "USER": "postgres",
-#         "PASSWORD": "Individualism777",
-#         "HOST": "127.0.0.1",
-#         "PORT": "5432",
-#     }
 
 
 # Password validation
