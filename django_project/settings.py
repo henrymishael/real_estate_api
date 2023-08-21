@@ -88,17 +88,16 @@ WSGI_APPLICATION = "django_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "real_estate",
-        "USER": "postgres",
-        "PASSWORD": "Individualism777",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
-    }
-}
+DATABASES = {"default": os.environ.get("DATABASE_URL")}
 
+# {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "real_estate",
+#         "USER": "postgres",
+#         "PASSWORD": "Individualism777",
+#         "HOST": "127.0.0.1",
+#         "PORT": "5432",
+#     }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
