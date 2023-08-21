@@ -31,7 +31,7 @@ SECRET_KEY = "hin04zSyPUhd59jUbKkjEtB25kNG7JpWBGQVi3TNBHM"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", default=False)
 
-ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1:5432"]
 
 
 # Application definition
@@ -93,16 +93,19 @@ DATABASES = {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
+    # "ENGINE": "django.db.backends.postgresql",
+    #      "NAME": "real_estate",
+    #      "USER": "postgres",
+    #      "PASSWORD": "Individualism777",
+    #      "HOST": "127.0.0.1",
+    #      "PORT": "5432",
 }
 
 # {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "real_estate",
-#         "USER": "postgres",
-#         "PASSWORD": "Individualism777",
-#         "HOST": "127.0.0.1",
-#         "PORT": "5432",
+#
 #     }
+
+#
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
