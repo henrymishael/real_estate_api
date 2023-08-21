@@ -12,11 +12,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import environ
 from datetime import timedelta
 from dotenv import load_dotenv
 
 load_dotenv()
 
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +28,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "hin04zSyPUhd59jUbKkjEtB25kNG7JpWBGQVi3TNBHM"
+SECRET_KEY = env("SECRET_KEY")
+# "hin04zSyPUhd59jUbKkjEtB25kNG7JpWBGQVi3TNBHM"
 # "django-insecure-hs(pnmunk!k-bt(apw$=t$p4j5qy@!%r)1yha$q6)tb84kfxdh"
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -90,12 +94,12 @@ WSGI_APPLICATION = "django_project.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "Bryan_estate",
-        "USER": "postgres",
-        "PASSWORD": "Individualism777",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": env("DB_NAME"),
+        "USER": env("DB_USER"),
+        "PASSWORD": env("DB_PASSWORD"),
+        "HOST": env("DB_HOST"),
+        "PORT": env("DB_PORT"),
     }
 }
 
